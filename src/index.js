@@ -1,16 +1,17 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const serverless = require("serverless-http");
 const app = express();
 const router = require("./routes/v1/index");
 
-app.use(bodyParser.json());
+app.post("/", (req, res) => {
+  res.send("Hello World!");
+});
 app.use(bodyParser.urlencoded({ extended: false }));
-app.post('/', (req, res) => {
-  res.send('Hello World!');
-})
+app.use(bodyParser.json());
 app.use("/v1", router);
+app.use("/.netlify/functions/server", router);
 
 module.exports = app;
 module.exports.handler = serverless(app);
