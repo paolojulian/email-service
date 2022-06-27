@@ -1,6 +1,6 @@
 "use strict";
 
-const app = require("./index.js");
+const app = require("./src/index.js");
 const port = process.env.PORT || 5000;
 
 app.listen(port, (error) => {
