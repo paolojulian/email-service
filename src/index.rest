@@ -1,4 +1,4 @@
-POST http://localhost:5000/v1/contact-me HTTP/1.1
+POST http://localhost:5000/.netlify/functions/index/contact-me HTTP/1.1
 content-type: application/json
 
 {
@@ -9,7 +9,7 @@ content-type: application/json
 
 ###
 
-POST https://paolojulian-email-service.netlify.app/.netlify/functions/index
+GET https://paolojulian-email-service.netlify.app/.netlify/functions/index
 content-type: application/json
 
 {

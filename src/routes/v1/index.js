@@ -18,10 +18,10 @@ router.post("/contact-me", (req, res) => {
     to: "paolovincentarch@gmail.com",
     subject: `${name} - Portfolio contact`,
     text: `
-        Name: ${name}
-        Email: ${email}
-        \n
-        ${text}
+      Name: ${name}
+      Email: ${email}
+      \n
+      ${text}
     `,
   };
 

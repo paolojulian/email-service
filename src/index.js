@@ -10,7 +10,6 @@ app.get("/", (req, res) => {
 });
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use("/v1", router);
 app.use("/.netlify/functions/index", router);
 
 module.exports = app;
