@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const serverless = require("serverless-http");
 const app = express();
-const router = require("./routes/v1/index");
+const router = require("./routes/v2/index");
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
