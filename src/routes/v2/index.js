@@ -13,19 +13,19 @@ const transporter = nodemailer.createTransport({
 });
 
 router.post("/contact-me", (req, res) => {
-  const { name, email, text } = req.body;
-  if (!email || !name || !text) {
+  const { name, email, message } = req.body;
+  if (!email || !name || !message) {
     return res.status(400).json({ message: "Form is incomplete" });
   }
-  const message = {
+  const mailData = {
     from: email,
     to: "paolojulian.personal@gmail.com",
     subject: "Somebody wants to hire you!",
-    text,
+    text: message,
     html: `
     <div>
       <p style="font-weight:base; color: #475569">
-        ${text}
+        ${message}
       </p>
       <div class="stack"> 
         <h2 style="font-weight: medium; font-size: 1rem;">${name}</h2>
@@ -44,7 +44,7 @@ router.post("/contact-me", (req, res) => {
     `,
   };
 
-  transporter.sendMail(message, (error, info) => {
+  transporter.sendMail(mailData, (error, info) => {
     if (error) {
       return console.log(error);
     }
